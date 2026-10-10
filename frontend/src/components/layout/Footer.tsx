@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { site } from "@/config/site";
 import { mainNav } from "@/config/navigation";
-import FooterYear from "@/components/layout/FooterYear";
 
 export default function Footer() {
   return (
@@ -44,7 +43,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-4 text-xs opacity-70">
-          © <FooterYear /> Bản quyền thuộc về {site.name}.
+          © 2026 Bản quyền thuộc về {site.name}.
         </div>
       </div>
     </footer>
