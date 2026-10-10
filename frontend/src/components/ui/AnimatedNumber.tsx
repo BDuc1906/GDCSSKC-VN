@@ -10,29 +10,14 @@ type Props = {
   className?: string;
 };
 
-function getInitialDisplay(value: string): string {
-  if (typeof window === "undefined") return "";
-  // Reduced motion → hiển thị luôn giá trị cuối
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    return value;
-  }
-  // Parse để hiển thị số 0 ban đầu với prefix/suffix
-  const match = value.match(/^([^\d]*)([\d.,]+)([^\d]*)$/);
-  const prefix = match?.[1] ?? "";
-  const suffix = match?.[3] ?? "";
-  return `${prefix}0${suffix}`;
-}
-
 export default function AnimatedNumber({
   value,
   duration = 1500,
   className = "",
 }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [display, setDisplay] = useState(() => getInitialDisplay(value));
-  const [started, setStarted] = useState(false);
 
-  // Tách số + prefix + suffix
+  /* ── Parse number format – deterministic, chạy cả server + client ── */
   const match = value.match(/^([^\d]*)([\d.,]+)([^\d]*)$/);
   const prefix = match?.[1] ?? "";
   const numberStr = match?.[2] ?? "0";
@@ -40,13 +25,17 @@ export default function AnimatedNumber({
   const target = parseInt(numberStr.replace(/[.,]/g, ""), 10) || 0;
   const useThousands = numberStr.includes(".") && numberStr.length > 4;
 
-  // Đã hiện sẵn giá trị cuối (do reduced-motion) → không cần chạy
-  const isReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* ── State ban đầu GIỐNG NHAU server + client → không mismatch ── */
+  const [display, setDisplay] = useState(`${prefix}0${suffix}`);
+  const [phase, setPhase] = useState<"idle" | "counting" | "done">("idle");
 
+  /* ── Effect 1: Detect reduced-motion + bắt đầu observe ── */
   useEffect(() => {
-    if (isReducedMotion) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplay(value);
+      setPhase("done");
+      return;
+    }
 
     const el = ref.current;
     if (!el) return;
@@ -54,7 +43,7 @@ export default function AnimatedNumber({
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setStarted(true);
+          setPhase("counting");
           io.disconnect();
         }
       },
@@ -63,10 +52,11 @@ export default function AnimatedNumber({
 
     io.observe(el);
     return () => io.disconnect();
-  }, [isReducedMotion]);
+  }, [value]);
 
+  /* ── Effect 2: Chạy animation đếm số khi element vào viewport ── */
   useEffect(() => {
-    if (!started || isReducedMotion) return;
+    if (phase !== "counting") return;
 
     const start = performance.now();
     let frame = 0;
@@ -85,12 +75,14 @@ export default function AnimatedNumber({
 
       if (progress < 1) {
         frame = requestAnimationFrame(tick);
+      } else {
+        setPhase("done");
       }
     }
 
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [started, target, duration, prefix, suffix, useThousands, isReducedMotion]);
+  }, [phase, target, duration, prefix, suffix, useThousands]);
 
   return (
     <span ref={ref} className={className}>

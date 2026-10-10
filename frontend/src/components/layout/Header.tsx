@@ -15,12 +15,15 @@ export default function Header() {
 
   const activeGroup = megaGroups.find((g) => g.matchHref === hovered);
 
+  /* Tách "Liên hệ" ra khỏi nav chính để render dạng button */
+  const navItems = mainNav.filter((item) => item.href !== "/contact");
+
   return (
     <header
       className="sticky top-0 z-40 bg-[var(--color-bg)] shadow-sm"
       onMouseLeave={() => setHovered(null)}
     >
-      {/* TẦNG 1 */}
+      {/* ───── TẦNG 1: Logo | Search | Actions ───── */}
       <div className="border-b border-[var(--color-border)]">
         <div className="mx-auto flex h-14 max-w-7xl items-center gap-2 px-3 sm:h-16 sm:gap-4 sm:px-4 lg:px-6">
           <Logo />
@@ -34,11 +37,19 @@ export default function Header() {
             <ThemeToggle />
 
             <Link
+              href="/contact"
+              className="hidden whitespace-nowrap rounded border-2 border-[var(--color-primary)] px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-primary-soft)] hover:shadow-md lg:inline-flex"
+            >
+              Liên hệ
+            </Link>
+
+            <Link
               href="/login"
               className="hidden whitespace-nowrap rounded border border-[var(--color-primary)] px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-primary-soft)] md:inline-flex"
             >
               Đăng nhập
             </Link>
+
             <Link
               href="/register"
               className="hidden whitespace-nowrap rounded bg-[var(--color-primary)] px-3 py-1.5 text-xs font-semibold text-[var(--color-on-primary)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-primary-dark)] hover:shadow-md md:inline-flex"
@@ -51,14 +62,14 @@ export default function Header() {
         </div>
       </div>
 
-      {/* TẦNG 2: Nav với mega menu */}
+      {/* ───── TẦNG 2: Nav + Mega menu ───── */}
       <nav
         aria-label="Điều hướng chính"
         className="relative hidden border-b-4 border-[var(--color-primary)] bg-[var(--color-bg)] md:block"
       >
-        <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
-          <ul className="flex items-center gap-0.5 overflow-x-auto py-1.5">
-            {mainNav.map((item) => {
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ul className="flex items-center justify-start gap-0">
+            {navItems.map((item) => {
               const hasMega = megaGroups.some(
                 (g) => g.matchHref === item.href,
               );
@@ -72,7 +83,7 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className={`group relative block whitespace-nowrap rounded px-2.5 py-2 text-xs font-medium transition-colors sm:px-3 sm:text-sm ${
+                    className={`group relative flex items-center gap-1 whitespace-nowrap rounded px-3 py-3 text-[13.5px] font-medium transition-colors lg:text-sm ${
                       isActive
                         ? "text-[var(--color-primary)]"
                         : "text-[var(--color-text)] hover:text-[var(--color-primary)]"
@@ -80,17 +91,16 @@ export default function Header() {
                   >
                     {item.label}
                     {hasMega && (
-                      <span
-                        aria-hidden
-                        className="ml-1 inline-block text-[10px]"
-                      >
+                      <span aria-hidden className="text-[9px] opacity-60">
                         ▾
                       </span>
                     )}
                     <span
                       aria-hidden
-                      className={`absolute bottom-0 left-2.5 right-2.5 h-0.5 origin-left bg-[var(--color-primary)] transition-transform duration-300 sm:left-3 sm:right-3 ${
-                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      className={`absolute bottom-1 left-3 right-3 h-0.5 origin-left bg-[var(--color-primary)] transition-transform duration-300 ${
+                        isActive
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
                   </Link>

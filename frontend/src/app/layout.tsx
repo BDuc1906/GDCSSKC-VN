@@ -11,7 +11,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipToContent from "@/components/layout/SkipToContent";
 import PageTransition from "@/components/layout/PageTransition";
-import AutoReveal from "@/components/ui/AutoReveal";
 import { site } from "@/config/site";
 
 const font = Be_Vietnam_Pro({
@@ -63,19 +62,18 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <body
-        className={`${font.variable} flex min-h-screen flex-col bg-[var(--color-bg)] text-[var(--color-text)] antialiased`}
-      >
+      <body className="bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
         <ThemeProvider>
           <LanguageProvider>
             <SkipToContent />
-            <Header />
-            <main id="main" className="flex-1">
-              <PageTransition>
-                <AutoReveal>{children}</AutoReveal>
-              </PageTransition>
-            </main>
-            <Footer />
+            {/* Wrapper: flex column full height, KHÔNG có overflow */}
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main id="main" className="flex-1">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+            </div>
           </LanguageProvider>
         </ThemeProvider>
       </body>

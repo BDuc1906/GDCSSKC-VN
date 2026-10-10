@@ -10,6 +10,8 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
       defaultTheme="light"
       enableSystem={false}
       disableTransitionOnChange
+      enableColorScheme={false}
+      storageKey="hoi-theme"
     >
       {children}
     </NextThemesProvider>
