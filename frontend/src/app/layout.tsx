@@ -11,6 +11,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipToContent from "@/components/layout/SkipToContent";
 import PageTransition from "@/components/layout/PageTransition";
+import AutoReveal from "@/components/ui/AutoReveal";
 import { site } from "@/config/site";
 
 const font = Be_Vietnam_Pro({
@@ -28,6 +29,26 @@ export const metadata: Metadata = {
   },
   description: site.shortDescription,
   applicationName: site.name,
+  keywords: [
+    "Hội GDCSSKCĐ",
+    "giáo dục chăm sóc sức khoẻ cộng đồng",
+    "hội xã hội nghề nghiệp",
+    "sức khoẻ cộng đồng",
+  ],
+  manifest: "/manifest.webmanifest",
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    url: "https://hoigdcsskcd.vn",
+    siteName: site.name,
+    title: site.name,
+    description: site.shortDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.shortDescription,
+  },
   icons: { icon: "/favicon.ico" },
 };
 
@@ -50,7 +71,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <SkipToContent />
             <Header />
             <main id="main" className="flex-1">
-              <PageTransition>{children}</PageTransition>
+              <PageTransition>
+                <AutoReveal>{children}</AutoReveal>
+              </PageTransition>
             </main>
             <Footer />
           </LanguageProvider>
