@@ -4,7 +4,6 @@ export type Banner = {
   subtitle: string;
   href: string;
   cta: string;
-  /** Gradient đỏ tươi, KHÔNG dùng đen */
   gradient: string;
 };
 
@@ -16,7 +15,7 @@ export const banners: Banner[] = [
       "Kết nối hội viên, chia sẻ tri thức và lan toả các hoạt động vì sức khoẻ cộng đồng.",
     href: "/about",
     cta: "Tìm hiểu về Hội",
-    gradient: "linear-gradient(135deg, #C8102E 0%, #E63946 100%)",
+    gradient: "linear-gradient(135deg, #16A34A 0%, #22C55E 100%)",
   },
   {
     id: "b2",
@@ -25,7 +24,7 @@ export const banners: Banner[] = [
       "Đánh giá kết quả công tác và đề ra phương hướng nhiệm vụ trọng tâm cho năm tiếp theo.",
     href: "/news",
     cta: "Xem tin tức",
-    gradient: "linear-gradient(135deg, #E63946 0%, #C8102E 100%)",
+    gradient: "linear-gradient(135deg, #22C55E 0%, #16A34A 100%)",
   },
   {
     id: "b3",
@@ -34,6 +33,6 @@ export const banners: Banner[] = [
       "Lan toả các chương trình thiện nguyện, khám chữa bệnh miễn phí cho nhân dân.",
     href: "/gallery",
     cta: "Xem thư viện ảnh",
-    gradient: "linear-gradient(135deg, #C8102E 0%, #FF5A5F 100%)",
+    gradient: "linear-gradient(135deg, #15803D 0%, #16A34A 100%)",
   },
 ];

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { ReactNode, CSSProperties } from "react";
 
 type ButtonVariant = "primary" | "outline" | "light" | "outline-light";
 
@@ -11,20 +11,21 @@ type ButtonProps = {
 };
 
 const baseClass =
-  "inline-flex items-center justify-center rounded px-5 py-2.5 text-sm font-semibold transition";
+  "inline-flex min-h-[44px] items-center justify-center rounded px-4 py-2.5 text-sm font-semibold transition sm:px-5";
 
 const variantClass: Record<ButtonVariant, string> = {
-  primary: "bg-[#C8102E] text-white hover:bg-[#A00D24]",
+  primary:
+    "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]",
   outline:
-    "border border-[#C8102E] text-[#C8102E] hover:bg-[#FCE8EB]",
+    "border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]",
   light: "bg-white hover:bg-white/90",
   "outline-light": "border border-white text-white hover:bg-white/10",
 };
 
-const variantStyle: Record<ButtonVariant, React.CSSProperties> = {
+const variantStyle: Record<ButtonVariant, CSSProperties> = {
   primary: {},
   outline: {},
-  light: { color: "#C8102E" },
+  light: { color: "var(--color-primary)" },
   "outline-light": {},
 };
 

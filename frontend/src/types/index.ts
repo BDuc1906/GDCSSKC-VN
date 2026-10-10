@@ -18,6 +18,9 @@ export type NewsItem = {
   category: NewsCategory;
   date: string;
   href: string;
+  content?: string[];
+  author?: string;
+  coverGradient?: string;
 };
 
 export type DocumentItem = {
@@ -27,6 +30,8 @@ export type DocumentItem = {
   issuedDate: string;
   fileSize?: string;
   href: string;
+  description?: string;
+  signer?: string;
 };
 
 export type DocumentGroup = {

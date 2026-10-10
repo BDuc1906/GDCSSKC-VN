@@ -27,40 +27,22 @@ export const metadata: Metadata = {
   },
   description: site.shortDescription,
   applicationName: site.name,
-  keywords: [
-    "Hội GDCSSKCĐ",
-    "giáo dục chăm sóc sức khoẻ cộng đồng",
-    "hội xã hội nghề nghiệp",
-    "sức khoẻ cộng đồng",
-  ],
-  manifest: "/manifest.webmanifest",
-  openGraph: {
-    type: "website",
-    locale: "vi_VN",
-    url: "https://hoigdcsskcd.vn",
-    siteName: site.name,
-    title: site.name,
-    description: site.shortDescription,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.name,
-    description: site.shortDescription,
-  },
   icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#C8102E",
+  themeColor: "#16A34A",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="vi" suppressHydrationWarning>
       <body
-        className={`${font.variable} flex min-h-screen flex-col bg-[var(--color-bg)] text-[var(--color-text)]`}
+        className={`${font.variable} flex min-h-screen flex-col bg-[var(--color-bg)] text-[var(--color-text)] antialiased`}
       >
         <ThemeProvider>
           <LanguageProvider>

@@ -4,7 +4,6 @@ import { IconHeartPulse } from "@/components/ui/Icons";
 type LogoProps = {
   iconOnly?: boolean;
   className?: string;
-  /** Dùng cho footer nền tối */
   variant?: "default" | "onDark";
 };
 
@@ -19,9 +18,7 @@ export default function Logo({
       : "border-[var(--color-primary)] text-[var(--color-primary)]";
 
   const textClass =
-    variant === "onDark"
-      ? "text-white"
-      : "text-[var(--color-primary)]";
+    variant === "onDark" ? "text-white" : "text-[var(--color-primary)]";
 
   return (
     <Link
@@ -31,13 +28,15 @@ export default function Logo({
     >
       <span
         aria-hidden
-        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md border-2 ${colorClass}`}
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md border-2 sm:h-10 sm:w-10 ${colorClass}`}
       >
-        <IconHeartPulse size={20} />
+        <IconHeartPulse size={18} />
       </span>
 
       {!iconOnly && (
-        <span className={`text-sm font-bold leading-tight md:text-base ${textClass}`}>
+        <span
+          className={`text-xs font-bold leading-tight sm:text-sm md:text-base ${textClass}`}
+        >
           Hội GDCSSKCĐ Việt Nam
         </span>
       )}

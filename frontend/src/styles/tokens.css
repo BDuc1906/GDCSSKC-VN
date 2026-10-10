@@ -1,10 +1,10 @@
 :root {
   color-scheme: light;
 
-  /* Brand */
-  --color-primary: #C8102E;
-  --color-primary-dark: #A00D24;
-  --color-primary-soft: #FCE8EB;
+  /* Brand – Green */
+  --color-primary: #16A34A;
+  --color-primary-dark: #15803D;
+  --color-primary-soft: #DCFCE7;
   --color-on-primary: #FFFFFF;
 
   /* Surfaces */
@@ -24,10 +24,10 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --color-primary: #FF4D57;
-  --color-primary-dark: #C8102E;
-  --color-primary-soft: #2A1416;
-  --color-on-primary: #FFFFFF;
+  --color-primary: #4ADE80;
+  --color-primary-dark: #16A34A;
+  --color-primary-soft: #0F2A1A;
+  --color-on-primary: #0A0A0A;
 
   --color-bg: #121212;
   --color-surface: #1C1C1C;

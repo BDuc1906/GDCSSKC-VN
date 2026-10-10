@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
+import { IconSun, IconMoon } from "@/components/ui/Icons";
 
 function useMounted() {
   return useSyncExternalStore(
@@ -16,7 +17,7 @@ export default function ThemeToggle() {
   const mounted = useMounted();
 
   if (!mounted) {
-    return <div className="h-9 w-9" aria-hidden />;
+    return <div className="h-10 w-10" aria-hidden />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -28,9 +29,9 @@ export default function ThemeToggle() {
         isDark ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"
       }
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="flex h-9 w-9 items-center justify-center rounded border border-[var(--color-border)] text-lg hover:border-[var(--color-primary)]"
+      className="flex h-10 w-10 items-center justify-center rounded border border-[var(--color-border)] text-[var(--color-primary)] transition hover:border-[var(--color-primary)]"
     >
-      {isDark ? "☀️" : "🌙"}
+      {isDark ? <IconSun size={18} /> : <IconMoon size={18} />}
     </button>
   );
 }

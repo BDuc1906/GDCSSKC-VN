@@ -1,6 +1,6 @@
 import Section from "@/components/ui/Section";
 import PageHero from "@/components/ui/PageHero";
-import DocumentList from "@/components/documents/DocumentList";
+import DocumentFilter from "@/components/documents/DocumentFilter";
 import { documentGroups } from "@/data/documentGroups";
 
 export const metadata = { title: "Văn bản" };
@@ -14,11 +14,7 @@ export default function DocumentsPage() {
       />
 
       <Section>
-        <div className="space-y-10">
-          {documentGroups.map((group) => (
-            <DocumentList key={group.id} group={group} />
-          ))}
-        </div>
+        <DocumentFilter groups={documentGroups} />
       </Section>
     </>
   );

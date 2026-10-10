@@ -18,7 +18,7 @@ export default function Section({
     <section
       className={`${muted ? "bg-[var(--color-surface)]" : "bg-[var(--color-bg)]"} ${className}`}
     >
-      <Container className={`py-10 md:py-14 ${containerClassName}`}>
+      <Container className={`py-8 sm:py-10 md:py-14 ${containerClassName}`}>
         {children}
       </Container>
     </section>

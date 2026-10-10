@@ -35,7 +35,7 @@ export default function SearchBox() {
       <button
         type="submit"
         aria-label="Tìm kiếm"
-        className="flex h-9 w-9 items-center justify-center text-[var(--color-primary)] transition hover:opacity-80"
+        className="flex h-10 w-10 items-center justify-center text-[var(--color-primary)] transition hover:opacity-80"
       >
         <IconSearch size={18} />
       </button>

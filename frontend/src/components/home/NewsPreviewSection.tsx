@@ -9,19 +9,29 @@ export default function NewsPreviewSection() {
 
   return (
     <Section muted>
-      <div className="flex items-end justify-between gap-4">
+      <div className="flex flex-wrap items-end justify-between gap-3">
         <SectionTitle subtitle="Cập nhật các chính sách, sự kiện và hoạt động mới nhất của Hội.">
           Tin tức mới
         </SectionTitle>
-        <Button href="/news" variant="outline" className="hidden md:inline-flex">
+        <Button
+          href="/news"
+          variant="outline"
+          className="hidden md:inline-flex"
+        >
           Xem tất cả
         </Button>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {items.map((item) => (
           <NewsCard key={item.id} item={item} />
         ))}
+      </div>
+
+      <div className="mt-6 md:hidden">
+        <Button href="/news" variant="outline" className="w-full">
+          Xem tất cả
+        </Button>
       </div>
     </Section>
   );

@@ -28,31 +28,31 @@ export default function BannerSlider() {
         className="relative transition-[background] duration-700"
         style={{ background: banners[index].gradient }}
       >
-        <Container className="flex min-h-[320px] flex-col justify-center py-14 md:min-h-[420px] md:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-white/80">
+        <Container className="flex min-h-[240px] flex-col justify-center py-10 sm:min-h-[320px] sm:py-14 md:min-h-[420px] md:py-20">
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-white/80 sm:text-xs">
             Trang thông tin chính thức
           </p>
 
-          <h1 className="mt-3 max-w-3xl text-balance text-3xl font-bold leading-tight text-white md:text-4xl">
+          <h1 className="mt-2 max-w-3xl text-balance text-2xl font-bold leading-tight text-white sm:mt-3 sm:text-3xl md:text-4xl">
             {banners[index].title}
           </h1>
 
-          <p className="mt-4 max-w-2xl text-pretty text-base text-white/90 md:text-lg">
+          <p className="mt-3 max-w-2xl text-pretty text-sm text-white/90 sm:mt-4 sm:text-base md:text-lg">
             {banners[index].subtitle}
           </p>
 
-          <div className="mt-6">
+          <div className="mt-5 sm:mt-6">
             <Link
               href={banners[index].href}
-              className="inline-flex items-center justify-center rounded bg-white px-5 py-2.5 text-sm font-semibold transition hover:bg-white/90"
-              style={{ color: "#C8102E" }}
+              className="inline-flex min-h-[44px] items-center justify-center rounded bg-white px-5 py-2.5 text-sm font-semibold transition hover:bg-white/90"
+              style={{ color: "#16A34A" }}
             >
               {banners[index].cta || "Xem thêm"}
             </Link>
           </div>
 
           <div
-            className="mt-8 flex gap-2"
+            className="mt-6 flex gap-2 sm:mt-8"
             role="tablist"
             aria-label="Chọn banner"
           >

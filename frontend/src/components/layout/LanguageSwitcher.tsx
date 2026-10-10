@@ -15,7 +15,6 @@ export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Đóng khi click ra ngoài
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (!ref.current) return;
@@ -25,7 +24,6 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
 
-  // Đóng khi nhấn Esc
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
@@ -44,15 +42,15 @@ export default function LanguageSwitcher() {
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-9 items-center gap-1 rounded border border-[var(--color-border)] px-2 text-[var(--color-primary)] transition hover:border-[var(--color-primary)]"
+        className="flex h-10 items-center gap-1 rounded border border-[var(--color-border)] px-2 text-[var(--color-primary)] transition hover:border-[var(--color-primary)]"
       >
         <IconGlobe size={18} />
-        <span className="text-xs font-semibold text-[var(--color-text)]">
+        <span className="hidden text-xs font-semibold text-[var(--color-text)] sm:inline">
           {current.short}
         </span>
         <IconChevronDown
           size={14}
-          className={`text-[var(--color-text-muted)] transition-transform ${
+          className={`hidden text-[var(--color-text-muted)] transition-transform sm:inline ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -62,7 +60,7 @@ export default function LanguageSwitcher() {
         <ul
           role="listbox"
           aria-label="Ngôn ngữ"
-          className="absolute right-0 top-full z-50 mt-1 min-w-[160px] overflow-hidden rounded border border-[var(--color-border)] bg-[var(--color-bg)] shadow-lg"
+          className="absolute right-0 top-full z-50 mt-1 min-w-[150px] overflow-hidden rounded border border-[var(--color-border)] bg-[var(--color-bg)] shadow-lg"
         >
           {options.map((o) => {
             const selected = o.value === lang;
@@ -74,7 +72,7 @@ export default function LanguageSwitcher() {
                     setLang(o.value);
                     setOpen(false);
                   }}
-                  className={`flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-sm transition ${
+                  className={`flex w-full items-center justify-between gap-3 px-3 py-3 text-left text-sm transition sm:py-2 ${
                     selected
                       ? "bg-[var(--color-primary-soft)] font-semibold text-[var(--color-primary)]"
                       : "text-[var(--color-text)] hover:bg-[var(--color-surface)]"

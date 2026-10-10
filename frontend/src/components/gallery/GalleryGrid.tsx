@@ -3,7 +3,7 @@ import { galleryCategoryLabels } from "@/data/gallery";
 
 export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
       {items.map((it) => (
         <figure
           key={it.id}
@@ -16,10 +16,12 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
             style={{ background: it.gradient }}
           />
           <figcaption className="p-3">
-            <span className="inline-block rounded bg-[var(--color-primary-soft)] px-2 py-0.5 text-xs font-semibold text-[var(--color-primary)]">
+            <span className="inline-block rounded bg-[var(--color-primary-soft)] px-2 py-0.5 text-[10px] font-semibold text-[var(--color-primary)] sm:text-xs">
               {galleryCategoryLabels[it.category]}
             </span>
-            <p className="mt-2 text-sm font-semibold">{it.title}</p>
+            <p className="mt-2 text-pretty text-xs font-semibold sm:text-sm">
+              {it.title}
+            </p>
           </figcaption>
         </figure>
       ))}
