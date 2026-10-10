@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
                 aria-hidden
                 className="text-3xl font-serif leading-none text-[var(--color-primary)]"
               >
-                "
+                &ldquo;
               </span>
               <p className="mt-1 flex-1 text-pretty text-sm italic leading-relaxed text-[var(--color-text)]">
                 {t.quote}

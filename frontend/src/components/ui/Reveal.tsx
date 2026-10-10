@@ -12,6 +12,12 @@ type RevealProps = {
   as?: "div" | "section" | "article" | "li" | "figure";
 };
 
+function getInitialVisible(): boolean {
+  if (typeof window === "undefined") return false;
+  // Nếu user bật reduced motion → hiện ngay, không cần animation
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export default function Reveal({
   children,
   delay = 0,
@@ -19,17 +25,14 @@ export default function Reveal({
   as: Tag = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(getInitialVisible);
 
   useEffect(() => {
+    // Đã hiện sẵn do reduced-motion → không cần observe
+    if (visible) return;
+
     const el = ref.current;
     if (!el) return;
-
-    // Tôn trọng prefers-reduced-motion
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
-      return;
-    }
 
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -43,7 +46,7 @@ export default function Reveal({
 
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [visible]);
 
   return (
     <Tag
