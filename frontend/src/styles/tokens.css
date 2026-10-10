@@ -1,0 +1,42 @@
+:root {
+  color-scheme: light;
+
+  /* Brand */
+  --color-primary: #C8102E;
+  --color-primary-dark: #A00D24;
+  --color-primary-soft: #FCE8EB;
+  --color-on-primary: #FFFFFF;
+
+  /* Surfaces */
+  --color-bg: #FFFFFF;
+  --color-surface: #F8F8F8;
+  --color-border: #E5E5E5;
+
+  /* Text */
+  --color-text: #1A1A1A;
+  --color-text-muted: #5A5A5A;
+
+  /* Dark block (footer / header accents) */
+  --color-dark: #111111;
+  --color-on-dark: #FFFFFF;
+}
+
+/* Chế độ tối là tuỳ chọn – mặc định vẫn là nền trắng */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-primary: #FF4D57;
+  --color-primary-dark: #C8102E;
+  --color-primary-soft: #2A1416;
+  --color-on-primary: #FFFFFF;
+
+  --color-bg: #121212;
+  --color-surface: #1C1C1C;
+  --color-border: #333333;
+
+  --color-text: #F5F5F5;
+  --color-text-muted: #B0B0B0;
+
+  --color-dark: #000000;
+  --color-on-dark: #FFFFFF;
+}
