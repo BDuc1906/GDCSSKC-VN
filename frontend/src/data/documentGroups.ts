@@ -12,6 +12,7 @@ export const documentGroups: DocumentGroup[] = [
         code: "ĐL-2024",
         issuedDate: "01/01/2024",
         href: "#",
+        tags: ["Điều lệ", "Pháp lý", "Nền tảng"],
       },
       {
         id: "d2",
@@ -19,6 +20,7 @@ export const documentGroups: DocumentGroup[] = [
         code: "QĐ-BNV",
         issuedDate: "15/12/2023",
         href: "#",
+        tags: ["Thành lập", "Bộ Nội vụ"],
       },
     ],
   },

@@ -1,5 +1,6 @@
 import Card from "@/components/ui/Card";
 import EmptyState from "@/components/ui/EmptyState";
+import Reveal from "@/components/ui/Reveal";
 import type { Event } from "@/data/events";
 import { formatEventDate } from "@/data/events";
 
@@ -10,9 +11,9 @@ export default function EventList({ events }: { events: Event[] }) {
 
   return (
     <ul className="space-y-3 sm:space-y-4">
-      {events.map((e) => (
-        <li key={e.id}>
-          <Card className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+      {events.map((e, i) => (
+        <Reveal key={e.id} delay={i * 100} as="li">
+          <Card className="flex flex-col gap-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-md sm:flex-row sm:items-center sm:gap-4">
             <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg bg-[var(--color-primary-soft)] text-[var(--color-primary)] sm:h-16 sm:w-16">
               <span className="text-[10px] font-semibold uppercase sm:text-xs">
                 {new Date(e.date).toLocaleDateString("vi-VN", {
@@ -35,7 +36,7 @@ export default function EventList({ events }: { events: Event[] }) {
               </p>
             </div>
           </Card>
-        </li>
+        </Reveal>
       ))}
     </ul>
   );

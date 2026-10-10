@@ -10,6 +10,7 @@ import LanguageProvider from "@/i18n/LanguageProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipToContent from "@/components/layout/SkipToContent";
+import PageTransition from "@/components/layout/PageTransition";
 import { site } from "@/config/site";
 
 const font = Be_Vietnam_Pro({
@@ -49,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <SkipToContent />
             <Header />
             <main id="main" className="flex-1">
-              {children}
+              <PageTransition>{children}</PageTransition>
             </main>
             <Footer />
           </LanguageProvider>

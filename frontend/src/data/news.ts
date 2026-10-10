@@ -11,6 +11,7 @@ export const newsItems: NewsItem[] = [
     href: "/news/n1",
     author: "Văn phòng Trung ương Hội",
     coverGradient: "linear-gradient(135deg,#16A34A 0%,#22C55E 100%)",
+    tags: ["Hội nghị", "Ban Thường vụ", "Quý IV"],
     content: [
       "Ngày 20/10/2025, tại Hà Nội, Hội GDCSSKCĐ Việt Nam đã tổ chức Hội nghị Ban Thường vụ mở rộng quý IV. Tham dự Hội nghị có các đồng chí trong Ban Thường vụ, Ban Chấp hành Trung ương Hội, đại diện lãnh đạo các Ban chuyên môn, Văn phòng đại diện, Liên Chi hội và Chi hội trực thuộc.",
       "Hội nghị đã nghe báo cáo kết quả công tác năm và thảo luận, cho ý kiến vào dự thảo phương hướng, nhiệm vụ trọng tâm cho năm tiếp theo. Các đại biểu đánh giá cao những kết quả Hội đã đạt được trong công tác phát triển tổ chức, chăm sóc sức khoẻ cộng đồng và các hoạt động thiện nguyện.",
@@ -28,6 +29,7 @@ export const newsItems: NewsItem[] = [
     href: "/news/n2",
     author: "Ban Tuyên truyền - Giáo dục",
     coverGradient: "linear-gradient(135deg,#22C55E 0%,#16A34A 100%)",
+    tags: ["Chính sách", "Y tế", "Nhà nước"],
     content: [
       "Thời gian qua, Đảng và Nhà nước đã ban hành nhiều chủ trương, chính sách quan trọng nhằm bảo vệ, chăm sóc và nâng cao sức khoẻ nhân dân, hướng tới mục tiêu phát triển bền vững.",
       "Các văn bản mới tập trung vào việc nâng cao chất lượng dịch vụ y tế, mở rộng bảo hiểm y tế toàn dân, phát triển y tế cơ sở và y tế dự phòng, đồng thời tăng cường ứng dụng công nghệ trong khám chữa bệnh.",
@@ -44,6 +46,7 @@ export const newsItems: NewsItem[] = [
     href: "/news/n3",
     author: "Chi hội trực thuộc",
     coverGradient: "linear-gradient(135deg,#15803D 0%,#4ADE80 100%)",
+    tags: ["Thiện nguyện", "Khám miễn phí", "Cộng đồng"],
     content: [
       "Trong hai ngày 09–10/10/2025, Chi hội trực thuộc Hội GDCSSKCĐ Việt Nam đã phối hợp với chính quyền địa phương tổ chức chương trình khám, tư vấn sức khoẻ và cấp phát thuốc miễn phí cho hơn 500 lượt người dân trên địa bàn.",
       "Các y bác sĩ, hội viên của Hội đã trực tiếp khám tổng quát, đo huyết áp, kiểm tra đường huyết, siêu âm và tư vấn dinh dưỡng, phòng chống các bệnh không lây nhiễm cho bà con.",
@@ -60,6 +63,7 @@ export const newsItems: NewsItem[] = [
     href: "/news/n4",
     author: "Ban chuyên môn",
     coverGradient: "linear-gradient(135deg,#22C55E 0%,#4ADE80 100%)",
+    tags: ["Hội thảo", "Dinh dưỡng", "Nghiên cứu"],
     content: [
       "Hội thảo khoa học với chủ đề 'Dinh dưỡng và sức khoẻ cộng đồng trong bối cảnh mới' đã được Hội GDCSSKCĐ Việt Nam tổ chức thành công với sự tham gia của hơn 200 đại biểu là các nhà khoa học, chuyên gia dinh dưỡng, bác sĩ và cán bộ y tế.",
       "Tại Hội thảo, các đại biểu đã trình bày nhiều báo cáo khoa học quan trọng về tình trạng dinh dưỡng của người Việt Nam, các yếu tố nguy cơ của suy dinh dưỡng và thừa cân - béo phì, cũng như các giải pháp can thiệp dinh dưỡng hiệu quả.",

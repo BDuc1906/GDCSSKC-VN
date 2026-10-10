@@ -34,11 +34,12 @@ export default function NewsletterForm() {
             if (status !== "idle") setStatus("idle");
           }}
           placeholder="Email của bạn"
-          className="min-h-[44px] flex-1 rounded border border-white/30 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:border-white focus:outline-none"
+          className="min-h-[44px] flex-1 rounded border border-white/30 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/70 focus:border-white focus:outline-none"
         />
         <button
           type="submit"
-          className="min-h-[44px] whitespace-nowrap rounded bg-white px-5 py-2 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-white/90"
+          className="min-h-[44px] whitespace-nowrap rounded bg-white px-5 py-2 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:bg-white/95 hover:shadow-md"
+          style={{ color: "#16A34A" }}
         >
           Đăng ký
         </button>

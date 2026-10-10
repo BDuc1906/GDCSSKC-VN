@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
+import Reveal from "@/components/ui/Reveal";
 import { IconHeartPulse } from "@/components/ui/Icons";
 import { programs } from "@/data/programs";
 
@@ -42,25 +43,26 @@ export default function ProgramsSection() {
       </SectionTitle>
 
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-        {programs.map((p) => (
-          <Link
-            key={p.id}
-            href={p.href}
-            className="group flex h-full flex-col rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition hover:border-[var(--color-primary)] hover:shadow-sm"
-          >
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
-              <ProgramIcon icon={p.icon} />
-            </div>
-            <h3 className="mt-4 text-balance text-base font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)]">
-              {p.title}
-            </h3>
-            <p className="mt-2 flex-1 text-pretty text-sm leading-relaxed text-[var(--color-text-muted)]">
-              {p.description}
-            </p>
-            <span className="mt-4 text-xs font-semibold text-[var(--color-primary)]">
-              Xem thêm →
-            </span>
-          </Link>
+        {programs.map((p, i) => (
+          <Reveal key={p.id} delay={i * 100}>
+            <Link
+              href={p.href}
+              className="group flex h-full flex-col rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-lg"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110">
+                <ProgramIcon icon={p.icon} />
+              </div>
+              <h3 className="mt-4 text-balance text-base font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)]">
+                {p.title}
+              </h3>
+              <p className="mt-2 flex-1 text-pretty text-sm leading-relaxed text-[var(--color-text-muted)]">
+                {p.description}
+              </p>
+              <span className="mt-4 text-xs font-semibold text-[var(--color-primary)] transition-transform duration-300 group-hover:translate-x-1">
+                Xem thêm →
+              </span>
+            </Link>
+          </Reveal>
         ))}
       </div>
     </Section>

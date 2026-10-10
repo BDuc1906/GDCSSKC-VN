@@ -21,6 +21,8 @@ export type NewsItem = {
   content?: string[];
   author?: string;
   coverGradient?: string;
+  /** Tags để tìm kiếm/lọc nâng cao */
+  tags?: string[];
 };
 
 export type DocumentItem = {
@@ -32,6 +34,8 @@ export type DocumentItem = {
   href: string;
   description?: string;
   signer?: string;
+  /** Tags để tìm kiếm/lọc nâng cao */
+  tags?: string[];
 };
 
 export type DocumentGroup = {
@@ -63,4 +67,42 @@ export type FeeItem = {
   audience: string;
   amount: string;
   note?: string;
+};
+
+/* ============================================
+   FORUM
+   ============================================ */
+
+export type ForumCategory = {
+  id: string;
+  name: string;
+  description: string;
+  icon: "chat" | "question" | "idea" | "news";
+  color: string;
+};
+
+export type ForumTopic = {
+  id: string;
+  categoryId: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  authorRole: string;
+  createdAt: string;
+  replies: number;
+  views: number;
+  pinned?: boolean;
+  locked?: boolean;
+  tags?: string[];
+  content?: string[];
+};
+
+export type ForumReply = {
+  id: string;
+  topicId: string;
+  author: string;
+  authorRole: string;
+  createdAt: string;
+  content: string;
+  likes: number;
 };

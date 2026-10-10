@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 import NewsCard from "@/components/news/NewsCard";
 import { newsItems } from "@/data/news";
 
@@ -23,8 +24,10 @@ export default function NewsPreviewSection() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-        {items.map((item) => (
-          <NewsCard key={item.id} item={item} />
+        {items.map((item, i) => (
+          <Reveal key={item.id} delay={i * 120}>
+            <NewsCard item={item} />
+          </Reveal>
         ))}
       </div>
 

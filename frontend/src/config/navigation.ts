@@ -1,9 +1,18 @@
 import type { NavItem } from "@/types";
 
-/**
- * Điều hướng chính trên thanh Header.
- * Thứ tự hiển thị đúng như mảng bên dưới.
- */
+export type MegaColumn = {
+  title: string;
+  items: NavItem[];
+};
+
+export type MegaGroup = {
+  /** Khớp với href của NavItem cha */
+  matchHref: string;
+  columns: MegaColumn[];
+  /** CTA nhỏ ở góc phải */
+  cta?: { label: string; href: string };
+};
+
 export const mainNav: NavItem[] = [
   { label: "Trang chủ", href: "/" },
   { label: "Giới thiệu", href: "/about" },
@@ -15,30 +24,131 @@ export const mainNav: NavItem[] = [
   { label: "Quản trị", href: "/governance" },
   { label: "Hội viên", href: "/members" },
   { label: "Hội phí", href: "/fees" },
+  { label: "Diễn đàn", href: "/forum" },
   { label: "Thư viện ảnh", href: "/gallery" },
   { label: "Liên hệ", href: "/contact" },
 ];
 
-/**
- * Điều hướng phụ ở Footer (nếu muốn tách riêng).
- * Hiện dùng chung mainNav nên không bắt buộc.
- */
-export const footerNav: NavItem[] = [
-  { label: "Giới thiệu", href: "/about" },
-  { label: "Ban lãnh đạo", href: "/leadership" },
-  { label: "Văn bản", href: "/documents" },
-  { label: "Tin tức - Sự kiện", href: "/news" },
-  { label: "Hệ thống tổ chức", href: "/organization" },
-  { label: "Hội viên", href: "/members" },
-  { label: "Hội phí", href: "/fees" },
-  { label: "Liên hệ", href: "/contact" },
-];
-
-/**
- * Điều hướng pháp lý (dùng cho footer bottom nếu cần).
- */
-export const legalNav: NavItem[] = [
-  { label: "Điều khoản sử dụng", href: "/documents" },
-  { label: "Chính sách bảo mật", href: "/documents" },
-  { label: "Sitemap", href: "/sitemap.xml" },
+export const megaGroups: MegaGroup[] = [
+  {
+    matchHref: "/about",
+    columns: [
+      {
+        title: "Tổng quan",
+        items: [
+          { label: "Giới thiệu chung", href: "/about" },
+          { label: "Tầm nhìn - Sứ mệnh", href: "/about#tam-nhin" },
+          { label: "Lịch sử hình thành", href: "/about#lich-su" },
+        ],
+      },
+      {
+        title: "Nhân sự",
+        items: [
+          { label: "Ban lãnh đạo Hội", href: "/leadership" },
+          { label: "Ban Chấp hành", href: "/leadership#bch" },
+          { label: "Ban Thường vụ", href: "/leadership#btv" },
+        ],
+      },
+    ],
+  },
+  {
+    matchHref: "/documents",
+    columns: [
+      {
+        title: "Văn bản pháp lý",
+        items: [
+          { label: "Điều lệ Hội", href: "/documents#charter" },
+          { label: "Quyết định thành lập", href: "/documents#charter" },
+        ],
+      },
+      {
+        title: "Văn bản quản trị",
+        items: [
+          { label: "Quy định Chi hội", href: "/governance" },
+          { label: "Quy định Liên Chi hội", href: "/governance" },
+          { label: "Chế độ báo cáo", href: "/governance" },
+        ],
+      },
+      {
+        title: "Hội viên & Phí",
+        items: [
+          { label: "Quy định kết nạp", href: "/members" },
+          { label: "Quy định phí, hội phí", href: "/fees" },
+        ],
+      },
+    ],
+    cta: { label: "Tìm văn bản →", href: "/search" },
+  },
+  {
+    matchHref: "/news",
+    columns: [
+      {
+        title: "Chuyên mục tin",
+        items: [
+          { label: "Chính sách - Pháp luật", href: "/news" },
+          { label: "Sự kiện của Hội", href: "/news" },
+          { label: "Hoạt động đơn vị", href: "/news" },
+          { label: "Hoạt động khác", href: "/news" },
+        ],
+      },
+      {
+        title: "Sự kiện",
+        items: [
+          { label: "Lịch sự kiện sắp tới", href: "/events" },
+          { label: "Hội nghị - Hội thảo", href: "/events" },
+          { label: "Thiện nguyện", href: "/news" },
+        ],
+      },
+      {
+        title: "Đa phương tiện",
+        items: [
+          { label: "Thư viện ảnh", href: "/gallery" },
+          { label: "Tin nổi bật", href: "/news" },
+        ],
+      },
+    ],
+    cta: { label: "Tất cả tin tức →", href: "/news" },
+  },
+  {
+    matchHref: "/organization",
+    columns: [
+      {
+        title: "Hệ thống tổ chức",
+        items: [
+          { label: "Cơ quan TW Hội", href: "/organization" },
+          { label: "Liên Chi hội", href: "/organization" },
+          { label: "Chi hội", href: "/organization" },
+        ],
+      },
+      {
+        title: "Đơn vị trực thuộc",
+        items: [
+          { label: "Viện và Trung tâm", href: "/organization" },
+          { label: "Văn phòng đại diện", href: "/organization" },
+          { label: "Doanh nghiệp hội viên", href: "/organization" },
+        ],
+      },
+    ],
+  },
+  {
+    matchHref: "/members",
+    columns: [
+      {
+        title: "Hội viên",
+        items: [
+          { label: "Kết nạp hội viên", href: "/members" },
+          { label: "Hội viên cá nhân", href: "/members" },
+          { label: "Hội viên tổ chức", href: "/members" },
+        ],
+      },
+      {
+        title: "Hội phí",
+        items: [
+          { label: "Biểu phí, hội phí", href: "/fees" },
+          { label: "Đóng phí trực tuyến", href: "/fees" },
+          { label: "Đóng góp từ thiện", href: "/fees" },
+        ],
+      },
+    ],
+  },
 ];
