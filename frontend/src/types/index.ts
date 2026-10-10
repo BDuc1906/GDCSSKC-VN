@@ -21,7 +21,6 @@ export type NewsItem = {
   content?: string[];
   author?: string;
   coverGradient?: string;
-  /** Tags để tìm kiếm/lọc nâng cao */
   tags?: string[];
 };
 
@@ -34,7 +33,6 @@ export type DocumentItem = {
   href: string;
   description?: string;
   signer?: string;
-  /** Tags để tìm kiếm/lọc nâng cao */
   tags?: string[];
 };
 
@@ -105,4 +103,55 @@ export type ForumReply = {
   createdAt: string;
   content: string;
   likes: number;
+};
+
+/* ============================================
+   REPORTS – Báo cáo
+   ============================================ */
+
+export type ReportType = "offline" | "online";
+
+export type ReportStatus =
+  | "draft"
+  | "submitted"
+  | "reviewing"
+  | "approved"
+  | "rejected";
+
+export type ReportUnitType =
+  | "inter-branch"
+  | "branch"
+  | "committee"
+  | "institute-center"
+  | "magazine";
+
+export type Report = {
+  id: string;
+  reportCode: string;
+  reportType: ReportType;
+  unitType: ReportUnitType;
+  unitName: string;
+  reportTitle: string;
+  reportPeriod: string;
+  reportDate: string;
+  submitDate: string;
+  receiver: string;
+  contentSummary?: string;
+  fileUrl?: string;
+  fileName?: string;
+  fileSize?: string;
+  content?: ReportSection[];
+  signerName: string;
+  signerPosition: string;
+  status: ReportStatus;
+  reviewerName?: string;
+  reviewNote?: string;
+  reviewDate?: string;
+  createdAt: string;
+};
+
+export type ReportSection = {
+  id: string;
+  heading: string;
+  body: string;
 };

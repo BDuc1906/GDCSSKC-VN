@@ -6,10 +6,8 @@ export type MegaColumn = {
 };
 
 export type MegaGroup = {
-  /** Khớp với href của NavItem cha */
   matchHref: string;
   columns: MegaColumn[];
-  /** CTA nhỏ ở góc phải */
   cta?: { label: string; href: string };
 };
 
@@ -22,6 +20,7 @@ export const mainNav: NavItem[] = [
   { label: "Lịch sự kiện", href: "/events" },
   { label: "Hệ thống tổ chức", href: "/organization" },
   { label: "Quản trị", href: "/governance" },
+  { label: "Báo cáo", href: "/reports" },
   { label: "Hội viên", href: "/members" },
   { label: "Hội phí", href: "/fees" },
   { label: "Diễn đàn", href: "/forum" },
@@ -126,6 +125,31 @@ export const megaGroups: MegaGroup[] = [
           { label: "Viện và Trung tâm", href: "/organization" },
           { label: "Văn phòng đại diện", href: "/organization" },
           { label: "Doanh nghiệp hội viên", href: "/organization" },
+        ],
+      },
+    ],
+  },
+  {
+    matchHref: "/reports",
+    columns: [
+      {
+        title: "Báo cáo",
+        items: [
+          { label: "Danh sách báo cáo", href: "/reports" },
+          { label: "Gửi báo cáo mới", href: "/reports/new" },
+        ],
+      },
+      {
+        title: "Hình thức",
+        items: [
+          { label: "Báo cáo Offline (upload file)", href: "/reports/new/offline" },
+          { label: "Báo cáo Online (điền trực tiếp)", href: "/reports/new/online" },
+        ],
+      },
+      {
+        title: "Dành cho TW Hội",
+        items: [
+          { label: "Duyệt báo cáo", href: "/admin/reports" },
         ],
       },
     ],
