@@ -7,8 +7,8 @@ export default function Footer() {
     <footer className="bg-[var(--color-dark)] text-[var(--color-on-dark)]">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-3">
         <div>
-          <p className="text-base font-bold">{site.name}</p>
-          <p className="mt-2 text-sm opacity-80">{site.fullName}</p>
+          <p className="text-balance text-base font-bold">{site.name}</p>
+          <p className="mt-2 text-pretty text-sm opacity-80">{site.fullName}</p>
         </div>
 
         <div>
@@ -34,7 +34,7 @@ export default function Footer() {
             Liên hệ
           </p>
           <ul className="mt-3 space-y-2 text-sm opacity-90">
-            <li>Địa chỉ: {site.address}</li>
+            <li className="text-pretty">Địa chỉ: {site.address}</li>
             <li>Điện thoại: {site.phone}</li>
             <li>Email: {site.email}</li>
           </ul>

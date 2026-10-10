@@ -17,8 +17,8 @@ export default function ContactPage() {
       <Section>
         <Container className="grid gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-xl font-bold">Thông tin liên hệ</h2>
-            <ul className="mt-4 space-y-3 text-sm text-[var(--color-text)]">
+            <h2 className="text-balance text-xl font-bold">Thông tin liên hệ</h2>
+            <ul className="mt-4 space-y-3 text-pretty text-sm text-[var(--color-text)]">
               <li>
                 <strong>Địa chỉ:</strong> {site.address}
               </li>
@@ -38,7 +38,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <h2 className="text-xl font-bold">Gửi tin nhắn</h2>
+            <h2 className="text-balance text-xl font-bold">Gửi tin nhắn</h2>
             <div className="mt-4">
               <ContactForm />
             </div>

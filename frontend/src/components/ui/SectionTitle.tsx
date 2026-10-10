@@ -8,14 +8,14 @@ type SectionTitleProps = {
 export default function SectionTitle({ children, subtitle }: SectionTitleProps) {
   return (
     <div className="mb-6">
-      <h2 className="inline-block border-b-4 border-[var(--color-primary)] pb-2 text-xl font-bold text-[var(--color-text)] md:text-2xl">
+      <h2 className="inline-block border-b-4 border-[var(--color-primary)] pb-2 text-balance text-xl font-bold text-[var(--color-text)] md:text-2xl">
         {children}
       </h2>
       {subtitle ? (
-        <p className="mt-3 max-w-3xl text-sm text-[var(--color-text-muted)]">
+        <p className="mt-3 max-w-3xl text-pretty text-sm text-[var(--color-text-muted)]">
           {subtitle}
         </p>
       ) : null}
     </div>
   );
-}
+}   

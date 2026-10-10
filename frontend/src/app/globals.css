@@ -18,22 +18,36 @@ body {
 }
 
 /* =========================================================
+   TYPOGRAPHY – Tránh từ mồ côi
+   ========================================================= */
+
+/* Đoạn văn dài: tự động cân bằng dòng, tránh 1 từ nằm riêng */
+p {
+  text-wrap: pretty;
+}
+
+/* Tiêu đề: các dòng đều nhau hơn */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* =========================================================
    ACCESSIBILITY (WCAG AA)
    ========================================================= */
 
-/* Focus ring rõ ràng cho toàn bộ interactive elements */
 *:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-/* Loại bỏ focus ring mặc định của trình duyệt khi click chuột */
 *:focus:not(:focus-visible) {
   outline: none;
 }
 
-/* Tôn trọng cài đặt giảm chuyển động của người dùng */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -45,8 +59,6 @@ body {
   }
 }
 
-/* Hỗ trợ screen-reader-only (dùng với class .sr-only của Tailwind đã có,
-   nhưng thêm fallback để chắc chắn hoạt động đúng chuẩn WCAG) */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -60,16 +72,14 @@ body {
 }
 
 /* =========================================================
-   SCROLLBAR (tuỳ chọn – làm đẹp trên desktop)
+   SCROLLBAR
    ========================================================= */
 
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-border) transparent;
 }
 
-/* Chrome / Edge / Safari */
 *::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -101,7 +111,7 @@ body {
 }
 
 /* =========================================================
-   LINK MẶC ĐỊNH
+   LINK
    ========================================================= */
 
 a {
@@ -110,23 +120,7 @@ a {
 }
 
 /* =========================================================
-   HEADINGS – kế thừa font, không bị reset về mặc định
-   ========================================================= */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: inherit;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--color-text);
-}
-
-/* =========================================================
-   FORM ELEMENTS – đồng bộ font
+   FORM ELEMENTS
    ========================================================= */
 
 button,
@@ -148,7 +142,7 @@ button:disabled {
 }
 
 /* =========================================================
-   MEDIA – responsive mặc định
+   MEDIA
    ========================================================= */
 
 img,
