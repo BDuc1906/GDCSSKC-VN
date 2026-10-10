@@ -9,18 +9,26 @@ function uid() {
   return Math.random().toString(36).slice(2, 9);
 }
 
+/* ID cố định cho 3 phần ban đầu – không dùng Math.random để tránh lỗi prerender */
+const INITIAL_SECTIONS: ReportSection[] = [
+  { id: "section-1", heading: "I. Đặc điểm tình hình", body: "" },
+  { id: "section-2", heading: "II. Kết quả công tác", body: "" },
+  { id: "section-3", heading: "III. Phương hướng nhiệm vụ", body: "" },
+];
+
 export default function OnlineReportForm() {
-  const [sections, setSections] = useState<ReportSection[]>([
-    { id: uid(), heading: "I. Đặc điểm tình hình", body: "" },
-    { id: uid(), heading: "II. Kết quả công tác", body: "" },
-    { id: uid(), heading: "III. Phương hướng nhiệm vụ", body: "" },
-  ]);
+  const [sections, setSections] =
+    useState<ReportSection[]>(INITIAL_SECTIONS);
   const [submitted, setSubmitted] = useState(false);
 
   function addSection() {
     setSections((prev) => [
       ...prev,
-      { id: uid(), heading: `Phần ${prev.length + 1}`, body: "" },
+      {
+        id: uid(),
+        heading: `Phần ${prev.length + 1}`,
+        body: "",
+      },
     ]);
   }
 
