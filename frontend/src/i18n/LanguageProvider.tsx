@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
   type ReactNode,
 } from "react";
@@ -20,13 +19,19 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const STORAGE_KEY = "hoi-lang";
 
-export default function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("vi");
+function getInitialLang(): Lang {
+  if (typeof window === "undefined") return "vi";
+  const saved = window.localStorage.getItem(STORAGE_KEY);
+  if (saved === "vi" || saved === "en") return saved;
+  return "vi";
+}
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem(STORAGE_KEY) as Lang | null;
-    if (saved === "vi" || saved === "en") setLangState(saved);
-  }, []);
+export default function LanguageProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const [lang, setLangState] = useState<Lang>(getInitialLang);
 
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
