@@ -16,12 +16,11 @@
   --color-text: #1A1A1A;
   --color-text-muted: #5A5A5A;
 
-  /* Dark block (footer / header accents) */
+  /* Dark block (footer) */
   --color-dark: #111111;
   --color-on-dark: #FFFFFF;
 }
 
-/* Chế độ tối là tuỳ chọn – mặc định vẫn là nền trắng */
 [data-theme="dark"] {
   color-scheme: dark;
 

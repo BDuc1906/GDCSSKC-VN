@@ -1,0 +1,17 @@
+{
+  "name": "Hội GDCSSKCĐ Việt Nam",
+  "short_name": "Hội GDCSSKCĐ",
+  "description": "Trang thông tin chính thức của Hội GDCSSKCĐ Việt Nam",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#C8102E",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
